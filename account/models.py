@@ -1,14 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, UserManager
+from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    groups = None
-    user_permissions = None
-
-    # EMAIL_FIELD = 'email'
-    # USERNAME_FIELD = 'email'
-    # REQUIRED_FIELDS = ['email']
+    profile_image = models.ImageField(default='', upload_to='profile_pic')
+    EMAIL_FIELD = 'email'
+    USERNAME_FIELD='username'
+    REQUIRED_FIELDS = ['email']
 
 
 # class CustomManager(UserManager):

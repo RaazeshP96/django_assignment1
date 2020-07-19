@@ -125,11 +125,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ##################
 
 AUTH_USER_MODEL = 'account.CustomUser'
-#
-# AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
-#
-# LOGIN_URL = 'login'
-#
-# LOGIN_REDIRECT_URL = '/accounts/profile/'
-#
-# LOGOUT_REDIRECT_URL = 'login'
+
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'blog-home'
+LOGOUT_REDIRECT_URL = 'login'
