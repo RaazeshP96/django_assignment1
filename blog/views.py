@@ -10,12 +10,20 @@ def about_view(request):
     return render(request, 'blog/about.html')
 
 
+class UserPostListView(ListView):
+    model = Post
+    template_name = 'blog/user_posts.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+
+
 class PostList(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
     success_url = reverse_lazy('blog-home')
+    paginate_by = 5
 
 
 class PostDetail(LoginRequiredMixin, DetailView):
